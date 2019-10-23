@@ -9,8 +9,8 @@ class NumericFieldComponent extends DynamicFormFieldComponent {
   getValue = () => this.value() || "";
 
   render() {
-    const error = this.errorValue() ? (
-      <FormHelperText error={this.errorValue()}>
+    const error = this.invalid() ? (
+      <FormHelperText error={this.invalid()}>
         {this.errorMessage()}
       </FormHelperText>
     ) : null;
@@ -25,7 +25,7 @@ class NumericFieldComponent extends DynamicFormFieldComponent {
           onChange={this.handleChange}
           disabled={this.disableValue}
           onBlur={this.handleFocus}
-          error={this.errorValue()}
+          error={this.invalid()}
         />
         {error}
       </FormControl>

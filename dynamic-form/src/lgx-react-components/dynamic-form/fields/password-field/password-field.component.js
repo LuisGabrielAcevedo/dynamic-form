@@ -22,8 +22,8 @@ class PasswordFieldComponent extends DynamicFormFieldComponent {
 
   render() {
     const showPassword = this.state.showPassword;
-    const error = this.errorValue() ? (
-      <FormHelperText error={this.errorValue()}>
+    const error = this.invalid() ? (
+      <FormHelperText error={this.invalid()}>
         {this.errorMessage()}
       </FormHelperText>
     ) : null;
@@ -38,7 +38,7 @@ class PasswordFieldComponent extends DynamicFormFieldComponent {
           onChange={this.handleChange}
           disabled={this.disableValue}
           onBlur={this.handleFocus}
-          error={this.errorValue()}
+          error={this.invalid()}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
