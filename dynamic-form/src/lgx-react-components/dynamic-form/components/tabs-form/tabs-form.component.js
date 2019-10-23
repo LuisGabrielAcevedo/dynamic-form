@@ -1,28 +1,21 @@
 import React, { Component } from "react";
-import {
-  IDynamicFormMaterialData,
-  IDynamicFormMainGroup,
-  IDynamicFormGroup,
-  TDynamicFormUpdateModel,
-  IDynamicFormField
-} from "../../dynamic-form.interfaces";
-
+import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import RowFormComponent from "../row-form/form-row.component";
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
   const { children, value, index } = props;
   return <div>{value === index ? <div>{children}</div> : null}</div>;
 }
 
-class TabsFormComponent extends Component<TabsFormComponentProps, {}> {
+class TabsFormComponent extends Component {
   state = {
     value: 0
   };
 
-  changeValue(value: number) {
+  changeValue(value) {
     this.setState({ value });
   }
 
@@ -34,7 +27,7 @@ class TabsFormComponent extends Component<TabsFormComponentProps, {}> {
     ));
     const panels = groups.map((group, i) => (
       <TabPanel key={i} value={value} index={i}>
-        {(group.fields as IDynamicFormField[][]).map((fields, j) => (
+        {group.fields.map((fields, j) => (
           <RowFormComponent
             key={j}
             fields={fields}
@@ -58,17 +51,11 @@ class TabsFormComponent extends Component<TabsFormComponentProps, {}> {
   }
 }
 
+TabsFormComponent.propTypes = {
+  groups: PropTypes.array,
+  materialData: PropTypes.object,
+  form: PropTypes.object,
+  updateModel: PropTypes.func
+};
+
 export default TabsFormComponent;
-
-export interface TabsFormComponentProps {
-  groups: IDynamicFormMainGroup[];
-  materialData: IDynamicFormMaterialData;
-  form: IDynamicFormGroup;
-  updateModel: TDynamicFormUpdateModel;
-}
-
-export interface TabPanelProps {
-  value: number;
-  index: number;
-  children: any;
-}

@@ -19,20 +19,20 @@ import StringListComponent from "../../fields/string-list/string-list.component"
 class SelectDynamicFormFieldComponent extends Component {
   component() {
     const components = {
-      [DynamicFormFieldsConstants.DynamicTableAsyncAutocompleteComponent]: AsyncAutocompleteComponent,
-      [DynamicFormFieldsConstants.DynamicTableAutocompleteComponent]: AutocompleteComponent,
-      [DynamicFormFieldsConstants.DynamicTableCheckboxComponent]: CheckboxComponent,
-      [DynamicFormFieldsConstants.DynamicTableDatepickerComponent]: DatepickerComponent,
-      [DynamicFormFieldsConstants.DynamicTableEnumSelectComponent]: EnumSelectComponent,
-      [DynamicFormFieldsConstants.DynamicTableImageComponent]: ImageComponent,
-      [DynamicFormFieldsConstants.DynamicTableNumericFieldComponent]: NumericFieldComponent,
-      [DynamicFormFieldsConstants.DynamicTablePasswordFieldComponent]: PasswordFieldComponent,
-      [DynamicFormFieldsConstants.DynamicTableRadioGroupComponent]: RadioGroupComponent,
-      [DynamicFormFieldsConstants.DynamicTableSelectComponent]: SelectComponent,
-      [DynamicFormFieldsConstants.DynamicTableSwitchComponent]: SwitchComponent,
-      [DynamicFormFieldsConstants.DynamicTableTextFieldComponent]: TextFieldComponent,
-      [DynamicFormFieldsConstants.DynamicTableTextareaComponent]: TextareaComponent,
-      [DynamicFormFieldsConstants.DynamicTableStringListComponent]: StringListComponent
+      [DynamicFormFieldsConstants.DynamicFormAsyncAutocompleteComponent]: AsyncAutocompleteComponent,
+      [DynamicFormFieldsConstants.DynamicFormAutocompleteComponent]: AutocompleteComponent,
+      [DynamicFormFieldsConstants.DynamicFormCheckboxComponent]: CheckboxComponent,
+      [DynamicFormFieldsConstants.DynamicFormDatepickerComponent]: DatepickerComponent,
+      [DynamicFormFieldsConstants.DynamicFormEnumSelectComponent]: EnumSelectComponent,
+      [DynamicFormFieldsConstants.DynamicFormImageComponent]: ImageComponent,
+      [DynamicFormFieldsConstants.DynamicFormNumericFieldComponent]: NumericFieldComponent,
+      [DynamicFormFieldsConstants.DynamicFormPasswordFieldComponent]: PasswordFieldComponent,
+      [DynamicFormFieldsConstants.DynamicFormRadioGroupComponent]: RadioGroupComponent,
+      [DynamicFormFieldsConstants.DynamicFormSelectComponent]: SelectComponent,
+      [DynamicFormFieldsConstants.DynamicFormSwitchComponent]: SwitchComponent,
+      [DynamicFormFieldsConstants.DynamicFormTextFieldComponent]: TextFieldComponent,
+      [DynamicFormFieldsConstants.DynamicFormTextareaComponent]: TextareaComponent,
+      [DynamicFormFieldsConstants.DynamicFormStringListComponent]: StringListComponent
     };
     return components[this.props.field.component];
   }

@@ -3,12 +3,21 @@ import PanelsFormComponent from "./components/panels-form/panels-form.component"
 import StepsFormComponent from "./components/steps-form/steps-form.component";
 import TabsFormComponent from "./components/tabs-form/tabs-form.component";
 import SimpleFormComponent from "./components/simple-form/simple-form-component";
+import {
+  DynamicTablePanelsFormComponent,
+  DynamicTableTabsFormComponent,
+  DynamicTableStepsFormComponent
+} from "./constants/index";
+import DynamicFormMixinComponent from "./dynamic.form.mixin";
 import cloneDeep from "lodash/cloneDeep";
 import set from "lodash/set";
 
 class DynamicFormComponent extends DynamicFormMixinComponent {
   componentDidMount() {
-    const formatFieldResponse = this.formatFields(this.props.model);
+    const formatFieldResponse = this.formatFields(
+      this.props.formConfig,
+      this.props.model
+    );
     this.setState({
       mainGroupsFormatted: formatFieldResponse.mainGroupsFormatted,
       form: formatFieldResponse.formGroup
@@ -17,7 +26,21 @@ class DynamicFormComponent extends DynamicFormMixinComponent {
 
   componentWillUpdate(nextProps) {
     if (this.props.model !== nextProps.model) {
-      const formatFieldResponse = this.formatFields(nextProps.model);
+      const formatFieldResponse = this.formatFields(
+        this.props.formConfig,
+        nextProps.model
+      );
+      this.setState({
+        mainGroupsFormatted: formatFieldResponse.mainGroupsFormatted,
+        form: formatFieldResponse.formGroup
+      });
+    }
+
+    if (this.props.formConfig !== nextProps.formConfig) {
+      const formatFieldResponse = this.formatFields(
+        nextProps.formConfig,
+        this.props.model
+      );
       this.setState({
         mainGroupsFormatted: formatFieldResponse.mainGroupsFormatted,
         form: formatFieldResponse.formGroup
@@ -36,19 +59,15 @@ class DynamicFormComponent extends DynamicFormMixinComponent {
     };
   }
 
-  formatFields(model) {
-    return this.formatFieldsAction(
-      this.props.formConfig,
-      model,
-      this.props.columns
-    );
+  formatFields(formConfig, model) {
+    return this.formatFieldsAction(formConfig, model, this.props.columns);
   }
 
   getComponent() {
     const components = {
-      [EDynamicFormType.panels]: PanelsFormComponent,
-      [EDynamicFormType.steps]: StepsFormComponent,
-      [EDynamicFormType.tabs]: TabsFormComponent
+      [DynamicTablePanelsFormComponent]: PanelsFormComponent,
+      [DynamicTableStepsFormComponent]: StepsFormComponent,
+      [DynamicTableTabsFormComponent]: TabsFormComponent
     };
     return components[this.props.formType];
   }
