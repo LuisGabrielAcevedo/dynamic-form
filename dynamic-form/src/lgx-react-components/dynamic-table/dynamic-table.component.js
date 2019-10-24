@@ -43,7 +43,8 @@ class DynamicTableComponent extends React.Component {
       data,
       loadingType,
       pagination,
-      noDataMessage
+      noDataMessage,
+      rowActions
     } = this.props;
 
     const loadingComponent = loading ? (
@@ -65,6 +66,7 @@ class DynamicTableComponent extends React.Component {
           ref={tableData => (this.tableData = tableData)}
           data={data}
           headers={headers}
+          rowActions={rowActions}
         />
       ) : null;
 
@@ -78,7 +80,10 @@ class DynamicTableComponent extends React.Component {
         <div className="table-content">
           <div>
             {/* headers */}
-            <DynamicTableHeaderComponent headers={headers} />
+            <DynamicTableHeaderComponent
+              headers={headers}
+              rowActions={rowActions}
+            />
             {/* loading */}
             {loadingComponent}
             {/* default message */}
@@ -112,7 +117,8 @@ DynamicTableComponent.defaultProps = {
   loading: false,
   data: [],
   loadingType: DynamicTableRectLoading,
-  noDataMessage: "No data available"
+  noDataMessage: "No data available",
+  rowActions: []
 };
 
 export default DynamicTableComponent;
