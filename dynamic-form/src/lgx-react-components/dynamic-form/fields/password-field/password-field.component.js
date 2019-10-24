@@ -1,9 +1,7 @@
 import React from "react";
 import DynamicFormFieldComponent from "../dynamic-form-field-base.component";
-import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -21,17 +19,12 @@ class PasswordFieldComponent extends DynamicFormFieldComponent {
   };
 
   render() {
-    const showPassword = this.state.showPassword;
-    const error = this.invalid() ? (
-      <FormHelperText error={this.invalid()}>
-        {this.errorMessage()}
-      </FormHelperText>
-    ) : null;
-
+    const { showPassword } = this.state;
+    const DynamicInput = this.selectInput();
     return (
-      <FormControl fullWidth>
+      <FormControl fullWidth variant={this.appearance()}>
         <InputLabel htmlFor={this.label()}>{this.label()}</InputLabel>
-        <Input
+        <DynamicInput
           type={showPassword ? "text" : "password"}
           placeholder={this.placeholder()}
           value={this.getValue()}
@@ -51,7 +44,7 @@ class PasswordFieldComponent extends DynamicFormFieldComponent {
             </InputAdornment>
           }
         />
-        {error}
+        {this.error()}
       </FormControl>
     );
   }

@@ -109,7 +109,9 @@ class DynamicFormFieldComponent extends Component {
 
   async loadFieldOptions(value) {
     return this.props.field.options && this.props.field.options.fieldOptions
-      ? await this.props.field.options.fieldOptions(value)
+      ? Array.isArray(this.props.field.options.fieldOptions)
+        ? this.props.field.options.fieldOptions
+        : await this.props.field.options.fieldOptions(value)
       : [];
   }
 

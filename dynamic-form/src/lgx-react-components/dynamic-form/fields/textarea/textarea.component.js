@@ -1,24 +1,17 @@
 import DynamicFormFieldComponent from "../dynamic-form-field-base.component";
 import React from "react";
-import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText";
 
 class TextareaComponent extends DynamicFormFieldComponent {
   getValue = () => this.value() || "";
 
   render() {
-    const error = this.invalid() ? (
-      <FormHelperText error={this.invalid()}>
-        {this.errorMessage()}
-      </FormHelperText>
-    ) : null;
-
+    const DynamicInput = this.selectInput();
     return (
-      <FormControl fullWidth>
+      <FormControl fullWidth variant={this.appearance()}>
         <InputLabel htmlFor={this.label()}>{this.label()}</InputLabel>
-        <Input
+        <DynamicInput
           multiline
           placeholder={this.placeholder()}
           value={this.getValue()}
@@ -27,7 +20,7 @@ class TextareaComponent extends DynamicFormFieldComponent {
           onBlur={this.handleFocus}
           error={this.invalid()}
         />
-        {error}
+        {this.error()}
       </FormControl>
     );
   }

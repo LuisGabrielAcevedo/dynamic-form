@@ -1,8 +1,15 @@
 import {
   DynamicFormValidators,
   DynamicFormTextFieldComponent,
-  DynamicFormPasswordFieldComponent
+  DynamicFormPasswordFieldComponent,
+  DynamicFormNumericFieldComponent,
+  DynamicFormTextareaComponent,
+  DynamicFormRadioGroupComponent,
+  DynamicFormSwitchComponent,
+  DynamicFormCheckboxComponent,
+  DynamicFormSelectComponent
 } from "../../lgx-react-components/index";
+import Application from ".././../models/applications";
 
 const userForm = {
   fieldsConfig: [
@@ -31,7 +38,9 @@ const userForm = {
       key: "email",
       component: DynamicFormTextFieldComponent,
       validators: [
-        DynamicFormValidators.required({ message: "The email is required" }),
+        DynamicFormValidators.required({
+          message: "The field email is required"
+        }),
         DynamicFormValidators.email()
       ],
       options: {
@@ -61,11 +70,110 @@ const userForm = {
       key: "confirm_password",
       component: DynamicFormPasswordFieldComponent,
       validators: [
-        DynamicFormValidators.required({ message: "The confirm is required" }),
+        DynamicFormValidators.required({
+          message: "The field confirm is required"
+        }),
         DynamicFormValidators.confirm("password")
       ],
       options: {
         placeholder: "Confirm your password"
+      }
+    },
+    {
+      name: "Price",
+      key: "price",
+      component: DynamicFormNumericFieldComponent,
+      validators: [
+        DynamicFormValidators.required({
+          message: "The field price is required"
+        })
+      ]
+    },
+    {
+      name: "Note",
+      key: "note",
+      component: DynamicFormTextareaComponent,
+      validators: [
+        DynamicFormValidators.required({
+          message: "The field note is required"
+        })
+      ]
+    },
+    {
+      name: "Active user",
+      key: "isActive",
+      component: DynamicFormSwitchComponent,
+      validators: [
+        DynamicFormValidators.required({
+          message: "The field active user is required"
+        })
+      ]
+    },
+    {
+      name: "Active user",
+      key: "isActive2",
+      component: DynamicFormCheckboxComponent,
+      validators: [
+        DynamicFormValidators.required({
+          message: "The field active user is required"
+        })
+      ]
+    },
+    {
+      name: "Gender",
+      key: "userInformation.gender",
+      component: DynamicFormRadioGroupComponent,
+      validators: [
+        DynamicFormValidators.required({
+          message: "The field gender user is required"
+        })
+      ],
+      options: {
+        fieldOptions: [
+          { text: "Male", value: "male" },
+          { text: "Female", value: "female" }
+        ]
+      }
+    },
+    {
+      name: "Gender",
+      key: "userInformation.gender",
+      component: DynamicFormRadioGroupComponent,
+      validators: [
+        DynamicFormValidators.required({
+          message: "The field gender user is required"
+        })
+      ],
+      options: {
+        fieldOptions: [
+          { text: "Male", value: "male" },
+          { text: "Female", value: "female" }
+        ]
+      }
+    },
+    {
+      name: "Language",
+      key: "userConfigurations.language",
+      component: DynamicFormSelectComponent,
+      options: {
+        fieldOptions: [
+          { text: "Spanish", value: "es" },
+          { text: "English", value: "en" }
+        ]
+      }
+    },
+    {
+      name: "Application",
+      key: "application",
+      component: DynamicFormSelectComponent,
+      options: {
+        fieldOptions: async arg => {
+          const resp = await Application.find();
+          return resp.data;
+        },
+        associationText: "name",
+        associationValue: "_id",
+        multiple: true
       }
     }
   ]
