@@ -1,4 +1,4 @@
-import { DynamicTableTextComponent } from "../../../../lgx-react-components/index";
+import { DynamicTableTextComponent } from "../../lgx-react-components/index";
 
 const companyHeaders = [
   {

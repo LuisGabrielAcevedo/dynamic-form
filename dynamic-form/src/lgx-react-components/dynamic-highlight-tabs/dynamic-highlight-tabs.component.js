@@ -30,14 +30,26 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
       data: metadata
     });
 
-  const toggle = open => event => {
-    setState({ ...state, open: open });
+  const tabToggle = open => {
+    setState({ open: open, codeSelected: "jsx" });
+  };
+
+  const setCode = code => {
+    setState({ ...state, codeSelected: code });
   };
 
   const buttonGroup = buttonGroups.length ? (
     <ButtonGroup size="small">
       {buttonGroups.map((button, i) => (
-        <Button key={i}>{button.name}</Button>
+        <Button
+          key={i}
+          onClick={() => setCode(button.name)}
+          style={{
+            backgroundColor: button.name === state.codeSelected ? "#eee" : ""
+          }}
+        >
+          {button.name}
+        </Button>
       ))}
     </ButtonGroup>
   ) : null;
@@ -49,16 +61,17 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
         direction="row"
         alignContent="center"
         justify="space-between"
+        style={{ padding: "12px 12px 2px 12px" }}
       >
-        <Grid item style={{ margin: "16px" }}>
-          {!state.open ? <h4 style={{ margin: 0 }}>{title}</h4> : buttonGroup}
+        <Grid item>
+          {state.open ? buttonGroup : <h4 style={{ margin: 0 }}>{title}</h4>}
         </Grid>
         <Grid item>
           <Tooltip title={"code"}>
             <IconButton
               color="primary"
-              size="medium"
-              onClick={toggle(!state.open)}
+              size="small"
+              onClick={() => tabToggle(!state.open)}
             >
               <Icon>code</Icon>
             </IconButton>
@@ -66,11 +79,17 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
         </Grid>
       </Grid>
       {state.open
-        ? buttonGroups.map((button, i) => (
-            <SyntaxHighlighter key={i} language={button.codeType} style={dark}>
-              {button.data}
-            </SyntaxHighlighter>
-          ))
+        ? buttonGroups
+            .filter(button => button.name === state.codeSelected)
+            .map((button, i) => (
+              <SyntaxHighlighter
+                key={i}
+                language={button.codeType}
+                style={dark}
+              >
+                {button.data}
+              </SyntaxHighlighter>
+            ))
         : null}
     </div>
   );

@@ -3,7 +3,7 @@ import {
   DynamicFormValidators,
   DynamicFormTextFieldComponent,
   DynamicFormEnumSelectComponent
-} from "../../../../lgx-react-components/index";
+} from "../../lgx-react-components/index";
 
 const countryForm = {
   fieldsConfig: [

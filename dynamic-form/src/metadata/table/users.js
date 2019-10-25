@@ -1,7 +1,7 @@
 import {
   DynamicTableTextComponent,
   DynamicTableImageComponent
-} from "../../../../lgx-react-components/index";
+} from "../../lgx-react-components/index";
 
 const userHeaders = [
   {
