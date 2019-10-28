@@ -5,6 +5,7 @@ import DynamicFormComponent from "./dynamic-form/dynamic-form.component";
 import DynamicHighlightTabsComponent from "./dynamic-highlight-tabs/dynamic-highlight-tabs.component";
 import ToolbarComponent from "./toolbar/toolbar.component";
 import DrawerComponent from "./drawer/drawer.component";
+import HighlightCodeComponent from "./highlight-code/highlight-code.component";
 import { DynamicFormValidators } from "./dynamic-form/validation/dynamic-form-validators";
 // Components
 export {
@@ -13,6 +14,7 @@ export {
   TitleBarComponent,
   DynamicFormComponent,
   DynamicHighlightTabsComponent,
+  HighlightCodeComponent,
   ToolbarComponent,
   DrawerComponent
 };

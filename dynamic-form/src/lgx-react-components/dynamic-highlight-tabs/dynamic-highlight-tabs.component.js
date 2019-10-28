@@ -6,10 +6,15 @@ import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import Highlight from "react-highlight";
 
-function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
+function DynamicHighlightTabsComponent({
+  title,
+  jsx,
+  metadata,
+  component,
+  css
+}) {
   let buttonGroups = [];
   const [state, setState] = React.useState({
     open: false,
@@ -19,15 +24,22 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
   if (jsx)
     buttonGroups.push({
       name: "jsx",
-      codeType: "jsx",
-      data: jsx
+      language: "jsx",
+      code: jsx
     });
 
   if (metadata)
     buttonGroups.push({
       name: "metadata",
-      codeType: "json",
-      data: metadata
+      language: "json",
+      code: metadata
+    });
+
+  if (css)
+    buttonGroups.push({
+      name: "css",
+      language: "css",
+      code: css
     });
 
   const tabToggle = open => {
@@ -58,7 +70,6 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
     <div>
       <Grid
         container
-        direction="row"
         alignContent="center"
         justify="space-between"
         style={{ padding: "12px 12px 2px 12px" }}
@@ -68,11 +79,7 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
         </Grid>
         <Grid item>
           <Tooltip title={"code"}>
-            <IconButton
-              color="primary"
-              size="small"
-              onClick={() => tabToggle(!state.open)}
-            >
+            <IconButton size="small" onClick={() => tabToggle(!state.open)}>
               <Icon>code</Icon>
             </IconButton>
           </Tooltip>
@@ -82,15 +89,12 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
         ? buttonGroups
             .filter(button => button.name === state.codeSelected)
             .map((button, i) => (
-              <SyntaxHighlighter
-                key={i}
-                language={button.codeType}
-                style={dark}
-              >
-                {button.data}
-              </SyntaxHighlighter>
+              <div key={i}>
+                <Highlight>{button.code}</Highlight>
+              </div>
             ))
         : null}
+      {component ? component : null}
     </div>
   );
 }
@@ -98,7 +102,9 @@ function DynamicHighlightTabsComponent({ title, jsx, metadata }) {
 DynamicHighlightTabsComponent.propTypes = {
   title: PropTypes.string,
   jsx: PropTypes.string,
-  metadata: PropTypes.any
+  metadata: PropTypes.string,
+  component: PropTypes.element,
+  css: PropTypes.string
 };
 
 export default DynamicHighlightTabsComponent;

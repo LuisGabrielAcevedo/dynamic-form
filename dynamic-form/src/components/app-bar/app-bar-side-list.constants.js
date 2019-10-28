@@ -13,6 +13,10 @@ export const dynamicFormList = [
     redirect: "/components/dynamic-form/simple"
   },
   {
+    name: "Appearance",
+    redirect: "/components/dynamic-form/appearance"
+  },
+  {
     name: "Fields",
     redirect: "/components/dynamic-form/fields"
   },

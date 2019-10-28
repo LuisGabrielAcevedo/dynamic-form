@@ -8,6 +8,9 @@ const SimpleFormComponent = React.lazy(() =>
 const ValidatorsComponent = React.lazy(() =>
   import("./validators/validators.component")
 );
+const AppearanceComponent = React.lazy(() =>
+  import("./appearance/apparence.component")
+);
 
 const DynamicFormRoutes = [
   {
@@ -33,6 +36,12 @@ const DynamicFormRoutes = [
     exact: true,
     name: "validators",
     component: ValidatorsComponent
+  },
+  {
+    path: "/components/dynamic-form/appearance",
+    exact: true,
+    name: "appearance",
+    component: AppearanceComponent
   }
 ];
 
