@@ -76,7 +76,7 @@ class DynamicTableComponent extends React.Component {
       ) : null;
 
     return (
-      <div className="table material">
+      <div className="table table-scroll material">
         <div className="table-content">
           <div>
             {/* headers */}
