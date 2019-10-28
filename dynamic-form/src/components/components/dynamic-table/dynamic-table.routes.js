@@ -13,31 +13,31 @@ const SimpleTableComponent = React.lazy(() =>
   import("./simple-table/simple-table.component")
 );
 
-const DynamicFormRoutes = [
+const DynamicTableRoutes = [
   {
-    path: "/loading",
+    path: "/components/dynamic-table/loading",
     exact: true,
     name: "loading",
     component: LoadingComponent
   },
   {
-    path: "/multi-select",
+    path: "/components/dynamic-table/multi-select",
     exact: true,
     name: "multi-select",
     component: MultiSelectComponent
   },
   {
-    path: "/row-actions",
+    path: "/components/dynamic-table/row-actions",
     exact: true,
     name: "row-actions",
     component: RowActionsComponent
   },
   {
-    path: "/simple",
+    path: "/components/dynamic-table/simple",
     exact: true,
     name: "simple",
     component: SimpleTableComponent
   }
 ];
 
-export default DynamicFormRoutes;
+export default DynamicTableRoutes;

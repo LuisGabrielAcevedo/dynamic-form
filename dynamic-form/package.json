@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
+    "fg-loadcss": "^2.1.0",
     "lgx-axios-dev-tools": "^1.0.2",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",

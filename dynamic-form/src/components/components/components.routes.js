@@ -9,15 +9,15 @@ const DynamicFormComponent = React.lazy(() =>
 
 const ComponentsRoutes = [
   {
-    path: "/dynamic-table",
+    path: "/components/dynamic-form",
     exact: false,
-    name: "dynamic-table",
+    name: "dynamic-form",
     component: DynamicFormComponent
   },
   {
-    path: "/dynamic-form",
+    path: "/components/dynamic-table",
     exact: false,
-    name: "dynamic-form",
+    name: "dynamic-table",
     component: DynamicTableComponent
   }
 ];

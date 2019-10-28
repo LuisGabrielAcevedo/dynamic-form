@@ -9,8 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppBarComponent />
         <BrowserRouter>
+          <AppBarComponent />
           <React.Suspense fallback={<SimpleLoadingComponent />}>
             <Switch>
               {AppRoutes.map((route, i) => {

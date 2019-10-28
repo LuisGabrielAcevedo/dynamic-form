@@ -11,25 +11,25 @@ const ValidatorsComponent = React.lazy(() =>
 
 const DynamicFormRoutes = [
   {
-    path: "/fields",
+    path: "/components/dynamic-form/fields",
     exact: true,
     name: "fields",
     component: FieldsComponent
   },
   {
-    path: "/flex",
+    path: "/components/dynamic-form/flex",
     exact: true,
     name: "flex",
     component: FlexComponent
   },
   {
-    path: "/simple",
+    path: "/components/dynamic-form/simple",
     exact: true,
     name: "simple",
     component: SimpleFormComponent
   },
   {
-    path: "/validators",
+    path: "/components/dynamic-form/validators",
     exact: true,
     name: "validators",
     component: ValidatorsComponent
