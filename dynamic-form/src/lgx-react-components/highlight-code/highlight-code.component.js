@@ -5,7 +5,7 @@ import Highlight from "react-highlight";
 function HighlightCodeComponent({ code, language }) {
   return code && language ? (
     <div>
-      <Highlight language={language}>{code}</Highlight>
+      <Highlight className={language}>{code}</Highlight>
     </div>
   ) : null;
 }

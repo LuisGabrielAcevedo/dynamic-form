@@ -7,6 +7,9 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Highlight from "react-highlight";
+import { dynamicHighlightTabsStyles } from "./dynamic-highlight-tabs.styles";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles(dynamicHighlightTabsStyles);
 
 function DynamicHighlightTabsComponent({
   title,
@@ -15,6 +18,7 @@ function DynamicHighlightTabsComponent({
   component,
   css
 }) {
+  const classes = useStyles();
   let buttonGroups = [];
   const [state, setState] = React.useState({
     open: false,
@@ -24,7 +28,7 @@ function DynamicHighlightTabsComponent({
   if (jsx)
     buttonGroups.push({
       name: "jsx",
-      language: "jsx",
+      language: "javascript",
       code: jsx
     });
 
@@ -72,10 +76,14 @@ function DynamicHighlightTabsComponent({
         container
         alignContent="center"
         justify="space-between"
-        style={{ padding: "12px 12px 2px 12px" }}
+        className={classes.dynamicHighlightTabsContainer}
       >
         <Grid item>
-          {state.open ? buttonGroup : <h4 style={{ margin: 0 }}>{title}</h4>}
+          {state.open ? (
+            buttonGroup
+          ) : (
+            <h4 className={classes.dynamicHighlightTabsTitle}>{title}</h4>
+          )}
         </Grid>
         <Grid item>
           <Tooltip title={"code"}>
@@ -85,16 +93,20 @@ function DynamicHighlightTabsComponent({
           </Tooltip>
         </Grid>
       </Grid>
-      {state.open
-        ? buttonGroups
-            .filter(button => button.name === state.codeSelected)
-            .map((button, i) => (
-              <div key={i}>
-                <Highlight>{button.code}</Highlight>
-              </div>
-            ))
-        : null}
-      {component ? component : null}
+      <div className={classes.dynamicHighlightTabsCode}>
+        {state.open
+          ? buttonGroups
+              .filter(button => button.name === state.codeSelected)
+              .map((button, i) => (
+                <Highlight key={i} className={button.language}>
+                  {button.code}
+                </Highlight>
+              ))
+          : null}
+      </div>
+      <div className={classes.dynamicHighlightTabsContent}>
+        {component ? component : null}
+      </div>
     </div>
   );
 }

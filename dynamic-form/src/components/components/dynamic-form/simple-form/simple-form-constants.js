@@ -1,15 +1,19 @@
 export const simpleFormCss = `
 .row {
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
   margin: 20px 0;
 }
 
-.title {
-  font-weight: 400;
+button {
+  color: #fff;
+  background-color: #3f51b5;
+  min-height: 30px;
+  min-width: 100px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 
 `;
@@ -21,33 +25,21 @@ import {
   HighlightCodeComponent
 } from "lgx-react-components";
 import simpleForm from "./simple-form.metadata";
-import Button from "@material-ui/core/Button";
 
 function SimpleFormComponent() {
   const form = React.useRef(null);
 
-  const [state, setState] = React.useState({
-    formResp: null
-  });
-
   const submit = async () => {
     const formResp = await form.current.submit();
-    formResp.valid 
-      ? setState({ formResp }) 
-      : setState({ formResp: null });
   };
 
   return (
     <div>
       <DynamicFormComponent ref={form} formConfig={simpleForm} />
       <div className="row">
-        <Button
-          variant="outlined"
-          onClick={() => submit()}
-          color="primary"
-        >
-        Submit
-        </Button>
+        <button onClick={() => submit()}>
+          Submit
+        </button>
       </div>
     </div>
   );
@@ -56,4 +48,32 @@ function SimpleFormComponent() {
 export default SimpleFormComponent;
 
 `;
-export const simpleFormMetadata = ``;
+export const simpleFormMetadata = `
+import {
+  DynamicFormTextFieldComponent,
+  DynamicFormPasswordFieldComponent
+} from "lgx-react-components";
+
+const simpleForm = {
+  fieldsConfig: [
+    {
+      name: "Full name",
+      key: "full_name",
+      component: DynamicFormTextFieldComponent
+    },
+    {
+      name: "Email",
+      key: "email",
+      component: DynamicFormTextFieldComponent
+    },
+    {
+      name: "Password",
+      key: "password",
+      component: DynamicFormPasswordFieldComponent
+    }
+  ]
+};
+
+export default simpleForm;
+
+`;

@@ -5,8 +5,12 @@ import {
   HighlightCodeComponent
 } from "../../../../lgx-react-components/index";
 import simpleForm from "./simple-form.metadata";
-import Button from "@material-ui/core/Button";
-import { simpleFormCss, simpleFormJsx } from "./simple-form-constants";
+// import Button from "@material-ui/core/Button";
+import {
+  simpleFormCss,
+  simpleFormJsx,
+  simpleFormMetadata
+} from "./simple-form-constants";
 
 function SimpleFormComponent() {
   const form = React.useRef(null);
@@ -26,24 +30,21 @@ function SimpleFormComponent() {
       <DynamicHighlightTabsComponent
         css={simpleFormCss}
         jsx={simpleFormJsx}
+        metadata={simpleFormMetadata}
         component={
           <div>
             <DynamicFormComponent ref={form} formConfig={simpleForm} />
             <div className="row">
-              <Button
-                variant="outlined"
-                onClick={() => submit()}
-                color="primary"
-              >
+              <button className="button" onClick={() => submit()}>
                 Submit
-              </Button>
+              </button>
             </div>
           </div>
         }
       />
       {state.formResp ? (
         <HighlightCodeComponent
-          language={"json"}
+          language={"javascript"}
           code={JSON.stringify(state.formResp)}
         />
       ) : null}
