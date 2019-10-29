@@ -3,7 +3,7 @@ import {
   DynamicFormPasswordFieldComponent
 } from "../../../../lgx-react-components/index";
 
-const simpleForm = {
+export const simpleFormConfig = {
   fieldsConfig: [
     {
       name: "Full name",
@@ -22,5 +22,3 @@ const simpleForm = {
     }
   ]
 };
-
-export default simpleForm;

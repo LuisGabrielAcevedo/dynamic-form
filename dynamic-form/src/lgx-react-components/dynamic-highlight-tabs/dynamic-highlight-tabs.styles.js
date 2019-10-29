@@ -1,10 +1,10 @@
 export const dynamicHighlightTabsStyles = {
   dynamicHighlightTabsContainer: {
-    padding: "12px"
+    padding: "12px 12px 0 12px"
   },
   dynamicHighlightTabsTitle: {
     margin: 0,
-    color: "#3f51b5",
+    color: "#333A56",
     fontWeight: 600
   },
   dynamicHighlightTabsCode: {

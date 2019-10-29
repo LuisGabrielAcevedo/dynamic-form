@@ -12,7 +12,28 @@ code {
     monospace;
 }
 
-.lgx-row {
+.title {
+  font-weight: 600;
+  margin: 20px 10px;
+  color: #333a56;
+  font-size: 20px;
+}
+
+p {
+  margin-left: 10px;
+}
+
+pre {
+  margin: 0 !important;
+  font-size: 12px !important;
+}
+
+.token {
+  background: rgb(245, 242, 240) !important;
+}
+
+/* lgx */
+.row {
   display: flex;
   margin: 20px 0;
 }
@@ -25,28 +46,6 @@ code {
   justify-content: center;
 }
 
-.lgx-button {
-  color: #fff;
-  background-color: #3f51b5;
-  min-height: 30px;
-  min-width: 100px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
-.lgx-button:hover {
-  background-color: #1a237e;
-}
-
-.title {
-  font-weight: 600;
-  margin: 20px 10px;
-  color: #3f51b5;
-  font-size: 20px;
-}
-
-pre {
-  margin: 0 !important;
-  font-size: 14 !important;
+.m-0 {
+  margin: 0;
 }

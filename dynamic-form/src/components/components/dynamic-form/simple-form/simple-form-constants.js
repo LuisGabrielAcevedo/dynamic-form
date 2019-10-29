@@ -1,7 +1,8 @@
 export const simpleFormJsx = `
 import React from "react";
 import { DynamicFormComponent } from "lgx-react-components";
-import simpleForm from "./simple-form.metadata";
+import { simpleFormConfig } from "./simple-form.metadata";
+import Button from "@material-ui/core/Button";
 
 function SimpleFormComponent() {
   const form = React.useRef(null);
@@ -13,11 +14,15 @@ function SimpleFormComponent() {
 
   return (
     <div>
-      <DynamicFormComponent ref={form} formConfig={simpleForm} />
-      <div className="lgx-row justify-center">
-        <button className="lgx-button" onClick={() => submit()}>
+      <DynamicFormComponent ref={form} formConfig={simpleFormConfig} />
+      <div className="row justify-center">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => submit()}
+        >
           Submit
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -32,7 +37,7 @@ import {
   DynamicFormPasswordFieldComponent
 } from "lgx-react-components";
 
-const simpleForm = {
+export const simpleFormConfig = {
   fieldsConfig: [
     {
       name: "Full name",
@@ -51,7 +56,5 @@ const simpleForm = {
     }
   ]
 };
-
-export default simpleForm;
 
 `;

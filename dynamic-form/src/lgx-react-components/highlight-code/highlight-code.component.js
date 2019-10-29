@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Highlight from "react-highlight";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 function HighlightCodeComponent({ code, language }) {
   return code && language ? (
-    <div>
-      <Highlight className={language}>{code}</Highlight>
+    <div style={{ margin: "10px" }}>
+      <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
     </div>
   ) : null;
 }

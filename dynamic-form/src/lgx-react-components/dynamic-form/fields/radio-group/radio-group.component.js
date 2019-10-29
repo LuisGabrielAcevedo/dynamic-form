@@ -2,7 +2,6 @@ import DynamicFormFieldComponent from "../dynamic-form-field-base.component";
 import React from "react";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormLabel from "@material-ui/core/FormLabel";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -14,11 +13,6 @@ class RadioGroupComponent extends DynamicFormFieldComponent {
   }
 
   render() {
-    const error = this.invalid() ? (
-      <FormHelperText error={this.invalid()}>
-        {this.errorMessage()}
-      </FormHelperText>
-    ) : null;
     return (
       <FormControl fullWidth>
         <FormLabel
@@ -38,7 +32,7 @@ class RadioGroupComponent extends DynamicFormFieldComponent {
             />
           ))}
         </RadioGroup>
-        {error}
+        {this.error()}
       </FormControl>
     );
   }

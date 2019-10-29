@@ -27,7 +27,7 @@ function DynamicHighlightTabsComponent({
 
   if (jsx)
     buttonGroups.push({
-      name: "jsx",
+      name: "js",
       language: "jsx",
       code: jsx
     });
@@ -47,7 +47,7 @@ function DynamicHighlightTabsComponent({
     });
 
   const tabToggle = open => {
-    setState({ open: open, codeSelected: "jsx" });
+    setState({ open: open, codeSelected: "js" });
   };
 
   const setCode = code => {
@@ -80,12 +80,9 @@ function DynamicHighlightTabsComponent({
         className={classes.dynamicHighlightTabsContainer}
       >
         <Grid item>
-          {state.open ? (
-            buttonGroup
-          ) : (
-            <h4 className={classes.dynamicHighlightTabsTitle}>{title}</h4>
-          )}
+          <h4 className={classes.dynamicHighlightTabsTitle}>{title}</h4>
         </Grid>
+        <Grid item>{state.open ? buttonGroup : null}</Grid>
         <Grid item>
           <Tooltip title={"code"}>
             <IconButton size="small" onClick={() => tabToggle(!state.open)}>
@@ -99,9 +96,6 @@ function DynamicHighlightTabsComponent({
           ? buttonGroups
               .filter(button => button.name === state.codeSelected)
               .map((button, i) => (
-                // <Highlight key={i} className={button.language}>
-                //   {button.code}
-                // </Highlight>
                 <SyntaxHighlighter key={i} language={button.language}>
                   {button.code}
                 </SyntaxHighlighter>

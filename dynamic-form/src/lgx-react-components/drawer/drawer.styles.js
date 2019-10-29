@@ -3,10 +3,10 @@ export const sideListComponentStyle = {
     width: 250
   },
   activeRoute: {
-    color: "#3f51b5",
-    borderLeft: "4px solid #3f51b5"
+    color: "#333A56",
+    borderLeft: "4px solid #333A56"
   },
   activeColor: {
-    color: "#3f51b5"
+    color: "#333A56"
   }
 };

@@ -4,7 +4,9 @@ import * as DynamicFormFieldsConstants from "../../constants/index";
 import AsyncAutocompleteComponent from "../../fields/async-autocomplete/async-autocomplete.component";
 import AutocompleteComponent from "../../fields/autocomplete/autocomplete.component";
 import CheckboxComponent from "../../fields/checkbox/checkbox.component";
-import DatepickerComponent from "../../fields/datepicker/datepicker.component";
+import DatePickerComponent from "../../fields/date-picker/date-picker.component";
+import TimePickerComponent from "../../fields/time-picker/time-picker.component";
+import DateTimePickerComponent from "../../fields/date-time-picker/date-time-picker.component";
 import ImageComponent from "../../fields/image/image.component";
 import NumericFieldComponent from "../../fields/numeric-field/numeric-field";
 import PasswordFieldComponent from "../../fields/password-field/password-field.component";
@@ -21,7 +23,9 @@ class SelectDynamicFormFieldComponent extends Component {
       [DynamicFormFieldsConstants.DynamicFormAsyncAutocompleteComponent]: AsyncAutocompleteComponent,
       [DynamicFormFieldsConstants.DynamicFormAutocompleteComponent]: AutocompleteComponent,
       [DynamicFormFieldsConstants.DynamicFormCheckboxComponent]: CheckboxComponent,
-      [DynamicFormFieldsConstants.DynamicFormDatepickerComponent]: DatepickerComponent,
+      [DynamicFormFieldsConstants.DynamicFormDatePickerComponent]: DatePickerComponent,
+      [DynamicFormFieldsConstants.DynamicFormTimePickerComponent]: TimePickerComponent,
+      [DynamicFormFieldsConstants.DynamicFormDateTimePickerComponent]: DateTimePickerComponent,
       [DynamicFormFieldsConstants.DynamicFormImageComponent]: ImageComponent,
       [DynamicFormFieldsConstants.DynamicFormNumericFieldComponent]: NumericFieldComponent,
       [DynamicFormFieldsConstants.DynamicFormPasswordFieldComponent]: PasswordFieldComponent,

@@ -1,14 +1,15 @@
 import React from "react";
 import {
   DynamicHighlightTabsComponent,
+  DynamicFormFilledAppearance,
   DynamicFormComponent,
   HighlightCodeComponent
 } from "../../../../lgx-react-components/index";
-import { simpleFormConfig } from "./simple-form.metadata";
-import { simpleFormJsx, simpleFormMetadata } from "./simple-form-constants";
+import { formFieldsConfig } from "./form-fields.metadata";
+import { formFieldsJsx, formFieldsMetadata } from "./form-fields.constants";
 import Button from "@material-ui/core/Button";
 
-function SimpleFormComponent() {
+function FormFieldsComponent() {
   const form = React.useRef(null);
   const [state, setState] = React.useState({
     formResp: null
@@ -21,14 +22,20 @@ function SimpleFormComponent() {
 
   return (
     <div>
-      <h4 className="title">Dynamic form component</h4>
+      <h4 className="title">Form fields component</h4>
       <DynamicHighlightTabsComponent
         title={"Simple form"}
-        jsx={simpleFormJsx}
-        metadata={simpleFormMetadata}
+        jsx={formFieldsJsx}
+        metadata={formFieldsMetadata}
         component={
           <div>
-            <DynamicFormComponent ref={form} formConfig={simpleFormConfig} />
+            <DynamicFormComponent
+              ref={form}
+              formConfig={formFieldsConfig}
+              materialData={{
+                appearance: DynamicFormFilledAppearance
+              }}
+            />
             <div className="row justify-center">
               <Button
                 variant="contained"
@@ -51,4 +58,4 @@ function SimpleFormComponent() {
   );
 }
 
-export default SimpleFormComponent;
+export default FormFieldsComponent;

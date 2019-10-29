@@ -1,7 +1,7 @@
 import React from "react";
 
-const LoadingComponent = React.lazy(() =>
-  import("./loading/loading.component")
+const TableLoadingComponent = React.lazy(() =>
+  import("./table-loading/table-loading.component")
 );
 const MultiSelectComponent = React.lazy(() =>
   import("./multi-select/multi-select.component")
@@ -18,7 +18,7 @@ const DynamicTableRoutes = [
     path: "/components/dynamic-table/loading",
     exact: true,
     name: "loading",
-    component: LoadingComponent
+    component: TableLoadingComponent
   },
   {
     path: "/components/dynamic-table/multi-select",

@@ -12,6 +12,7 @@ class TextFieldComponent extends DynamicFormFieldComponent {
       <FormControl fullWidth variant={this.appearance()}>
         <InputLabel htmlFor={this.label()}>{this.label()}</InputLabel>
         <DynamicInput
+          type="text"
           placeholder={this.placeholder()}
           value={this.getValue()}
           onChange={this.handleChange}
