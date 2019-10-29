@@ -15,7 +15,7 @@ const SimpleTableComponent = React.lazy(() =>
 
 const DynamicTableRoutes = [
   {
-    path: "/components/dynamic-table/loading",
+    path: "/components/dynamic-table/table-loading",
     exact: true,
     name: "loading",
     component: TableLoadingComponent
@@ -33,7 +33,7 @@ const DynamicTableRoutes = [
     component: RowActionsComponent
   },
   {
-    path: "/components/dynamic-table/simple",
+    path: "/components/dynamic-table/simple-table",
     exact: true,
     name: "simple",
     component: SimpleTableComponent

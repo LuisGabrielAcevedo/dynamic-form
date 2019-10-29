@@ -19,7 +19,7 @@ function DynamicFormComponent() {
               />
             ) : null;
           })}
-          <Redirect from="/" to="/components/dynamic-form/simple" />
+          <Redirect from="/" to="/components/dynamic-form/simple-form" />
         </Switch>
       </React.Suspense>
     </div>

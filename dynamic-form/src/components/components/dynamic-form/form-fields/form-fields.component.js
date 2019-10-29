@@ -22,9 +22,9 @@ function FormFieldsComponent() {
 
   return (
     <div>
-      <h4 className="title">Form fields component</h4>
+      <h4 className="title">Dynamic form component</h4>
       <DynamicHighlightTabsComponent
-        title={"Simple form"}
+        title={"Form fields"}
         jsx={formFieldsJsx}
         metadata={formFieldsMetadata}
         component={

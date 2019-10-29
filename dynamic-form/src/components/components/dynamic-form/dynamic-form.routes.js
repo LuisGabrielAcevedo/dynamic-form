@@ -16,7 +16,7 @@ const AppearanceComponent = React.lazy(() =>
 
 const DynamicFormRoutes = [
   {
-    path: "/components/dynamic-form/fields",
+    path: "/components/dynamic-form/form-fields",
     exact: true,
     name: "fields",
     component: FormFieldsComponent
@@ -28,7 +28,7 @@ const DynamicFormRoutes = [
     component: FlexComponent
   },
   {
-    path: "/components/dynamic-form/simple",
+    path: "/components/dynamic-form/simple-form",
     exact: true,
     name: "simple",
     component: SimpleFormComponent

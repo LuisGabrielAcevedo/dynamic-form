@@ -1,7 +1,7 @@
 import {
   DynamicFormValidators,
   DynamicFormTextFieldComponent,
-  DynamicFormTextareaComponent
+  DynamicFormTextAreaComponent
 } from "../../lgx-react-components/index";
 
 const productCategoryForm = {
@@ -19,7 +19,7 @@ const productCategoryForm = {
     {
       name: "Description",
       key: "description",
-      component: DynamicFormTextareaComponent
+      component: DynamicFormTextAreaComponent
     }
   ]
 };

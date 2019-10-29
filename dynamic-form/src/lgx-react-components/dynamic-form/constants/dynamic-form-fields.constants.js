@@ -13,4 +13,4 @@ export const DynamicFormSelectComponent = "SelectComponent";
 export const DynamicFormStringListComponent = "StringListComponent";
 export const DynamicFormSwitchComponent = "SwitchComponent";
 export const DynamicFormTextFieldComponent = "TextFieldComponent";
-export const DynamicFormTextareaComponent = "TextareaComponent";
+export const DynamicFormTextAreaComponent = "TextareaComponent";

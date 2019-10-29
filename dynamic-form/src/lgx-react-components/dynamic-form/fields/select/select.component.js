@@ -23,7 +23,7 @@ class SelectComponent extends DynamicFormFieldComponent {
           onChange={this.handleChange}
           onBlur={this.handleFocus}
           error={this.invalid()}
-          renderValue={value => (this.multiple() ? value.join(",") : value)}
+          renderValue={value => this.formatValue(value)}
         >
           {this.state.options.map((option, i) => (
             <MenuItem key={i} value={option[this.associationValue()]}>

@@ -2,7 +2,7 @@ import {
   DynamicFormTextFieldComponent,
   DynamicFormPasswordFieldComponent,
   DynamicFormNumericFieldComponent,
-  DynamicFormTextareaComponent,
+  DynamicFormTextAreaComponent,
   DynamicFormSelectComponent,
   DynamicFormSwitchComponent,
   DynamicFormCheckboxComponent,
@@ -32,7 +32,7 @@ export const formFieldsConfig = {
     {
       name: "Textarea",
       key: "textarea_value",
-      component: DynamicFormTextareaComponent
+      component: DynamicFormTextAreaComponent
     },
     {
       name: "Date picker",
@@ -52,7 +52,22 @@ export const formFieldsConfig = {
     {
       name: "Select",
       key: "select_value",
-      component: DynamicFormSelectComponent
+      component: DynamicFormSelectComponent,
+      options: {
+        fieldOptions: [{ value: "1", text: "One" }, { value: "2", text: "Two" }]
+      }
+    },
+    {
+      name: "Multiple Select",
+      key: "multiple_select_value",
+      component: DynamicFormSelectComponent,
+      options: {
+        fieldOptions: [
+          { value: "1", text: "One" },
+          { value: "2", text: "Two" }
+        ],
+        multiple: true
+      }
     },
     {
       name: "Switch",

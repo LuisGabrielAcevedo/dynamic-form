@@ -10,6 +10,7 @@ import {
   DynamicFormFilledAppearance,
   DynamicFormOutlinedAppearance
 } from "../constants/dynamic-form-appearance.constants";
+import cloneDeep from "lodash/cloneDeep";
 
 class DynamicFormFieldComponent extends Component {
   visibleValue = true;
@@ -121,6 +122,24 @@ class DynamicFormFieldComponent extends Component {
     if (this.appearance() === DynamicFormFilledAppearance) return FilledInput;
     if (this.appearance() === DynamicFormOutlinedAppearance)
       return OutlinedInput;
+  }
+
+  formatValue(value) {
+    const options = cloneDeep(this.state.options);
+    let formattedValue = "";
+    if (this.multiple()) {
+      value.forEach(val => {
+        const tempVal = options.find(
+          item => item[this.associationValue()] === val
+        )[this.associationText()];
+        formattedValue += !formattedValue ? tempVal : ", " + tempVal;
+      });
+    } else {
+      formattedValue = options.find(
+        item => item[this.associationValue()] === value
+      )[this.associationText()];
+    }
+    return formattedValue;
   }
 }
 

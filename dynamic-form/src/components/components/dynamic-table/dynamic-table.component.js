@@ -19,7 +19,7 @@ function DynamicTableComponent() {
               />
             ) : null;
           })}
-          <Redirect from="/" to="/components/dynamic-table/simple" />
+          <Redirect from="/" to="/components/dynamic-table/simple-table" />
         </Switch>
       </React.Suspense>
     </div>

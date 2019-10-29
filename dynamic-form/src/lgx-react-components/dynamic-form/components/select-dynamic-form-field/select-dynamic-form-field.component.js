@@ -14,7 +14,7 @@ import RadioGroupComponent from "../../fields/radio-group/radio-group.component"
 import SelectComponent from "../../fields/select/select.component";
 import SwitchComponent from "../../fields/switch/switch.component";
 import TextFieldComponent from "../../fields/text-field/text-field.component";
-import TextareaComponent from "../../fields/textarea/textarea.component";
+import TextareaComponent from "../../fields/text-area/text-area.component";
 import StringListComponent from "../../fields/string-list/string-list.component";
 
 class SelectDynamicFormFieldComponent extends Component {
@@ -33,7 +33,7 @@ class SelectDynamicFormFieldComponent extends Component {
       [DynamicFormFieldsConstants.DynamicFormSelectComponent]: SelectComponent,
       [DynamicFormFieldsConstants.DynamicFormSwitchComponent]: SwitchComponent,
       [DynamicFormFieldsConstants.DynamicFormTextFieldComponent]: TextFieldComponent,
-      [DynamicFormFieldsConstants.DynamicFormTextareaComponent]: TextareaComponent,
+      [DynamicFormFieldsConstants.DynamicFormTextAreaComponent]: TextareaComponent,
       [DynamicFormFieldsConstants.DynamicFormStringListComponent]: StringListComponent
     };
     return components[this.props.field.component];

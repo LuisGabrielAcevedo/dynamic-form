@@ -9,23 +9,23 @@ export const dynamicFormList = [
     back: true
   },
   {
-    name: "Simple form",
+    name: "simple-form",
     redirect: "/components/dynamic-form/simple"
   },
   {
-    name: "Appearance",
+    name: "appearance",
     redirect: "/components/dynamic-form/appearance"
   },
   {
-    name: "Fields",
-    redirect: "/components/dynamic-form/fields"
+    name: "form-fields",
+    redirect: "/components/dynamic-form/form-fields"
   },
   {
-    name: "Flex",
+    name: "flex",
     redirect: "/components/dynamic-form/flex"
   },
   {
-    name: "Validators",
+    name: "validators",
     redirect: "/components/dynamic-form/validators"
   }
 ];
@@ -38,19 +38,19 @@ export const dynamicTableList = [
     back: true
   },
   {
-    name: "Simple table",
-    redirect: "/components/dynamic-table/simple"
+    name: "simple-table",
+    redirect: "/components/dynamic-table/simple-table"
   },
   {
-    name: "Loading",
-    redirect: "/components/dynamic-table/loading"
+    name: "table-loading",
+    redirect: "/components/dynamic-table/table-loading"
   },
   {
-    name: "Multi select",
+    name: "multi-select",
     redirect: "/components/dynamic-table/multi-select"
   },
   {
-    name: "Row actions",
+    name: "row-actions",
     redirect: "/components/dynamic-table/row-actions"
   }
 ];
@@ -63,22 +63,22 @@ export const componentsList = [
     back: true
   },
   {
-    name: "Dynamic form",
+    name: "dynamic-form",
     subList: dynamicFormList
   },
   {
-    name: "Dynamic table",
+    name: "dynamic-table",
     subList: dynamicTableList
   }
 ];
 
 export const mainList = [
   {
-    name: "Getting started",
+    name: "getting-started",
     redirect: "/getting-started"
   },
   {
-    name: "Components",
+    name: "components",
     subList: componentsList
   }
 ];
