@@ -3,14 +3,18 @@ export const dynamicHighlightTabsStyles = {
     padding: "12px"
   },
   dynamicHighlightTabsTitle: {
-    margin: 0
+    margin: 0,
+    color: "#3f51b5",
+    fontWeight: 600
   },
   dynamicHighlightTabsCode: {
     maxHeight: "500px",
-    overflowY: "scroll"
+    overflowY: "scroll",
+    margin: "10px"
   },
   dynamicHighlightTabsContent: {
-    backgroundColor: "#f5f5f5",
-    padding: "10px"
+    backgroundColor: "rgb(245, 242, 240)",
+    padding: "10px",
+    margin: "10px"
   }
 };

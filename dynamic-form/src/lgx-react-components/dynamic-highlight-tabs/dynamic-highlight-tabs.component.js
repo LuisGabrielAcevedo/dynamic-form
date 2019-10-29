@@ -6,7 +6,7 @@ import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Highlight from "react-highlight";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dynamicHighlightTabsStyles } from "./dynamic-highlight-tabs.styles";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(dynamicHighlightTabsStyles);
@@ -28,14 +28,14 @@ function DynamicHighlightTabsComponent({
   if (jsx)
     buttonGroups.push({
       name: "jsx",
-      language: "javascript",
+      language: "jsx",
       code: jsx
     });
 
   if (metadata)
     buttonGroups.push({
       name: "metadata",
-      language: "json",
+      language: "javascript",
       code: metadata
     });
 
@@ -61,7 +61,8 @@ function DynamicHighlightTabsComponent({
           key={i}
           onClick={() => setCode(button.name)}
           style={{
-            backgroundColor: button.name === state.codeSelected ? "#eee" : ""
+            backgroundColor:
+              button.name === state.codeSelected ? "rgb(245, 242, 240)" : ""
           }}
         >
           {button.name}
@@ -98,9 +99,12 @@ function DynamicHighlightTabsComponent({
           ? buttonGroups
               .filter(button => button.name === state.codeSelected)
               .map((button, i) => (
-                <Highlight key={i} className={button.language}>
+                // <Highlight key={i} className={button.language}>
+                //   {button.code}
+                // </Highlight>
+                <SyntaxHighlighter key={i} language={button.language}>
                   {button.code}
-                </Highlight>
+                </SyntaxHighlighter>
               ))
           : null}
       </div>
