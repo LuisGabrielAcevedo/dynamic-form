@@ -1,0 +1,15 @@
+export const DFAsyncAutocomplete = "AsyncAutocompleteComponent";
+export const DFAutocomplete = "AutocompleteComponent";
+export const DFCheckbox = "CheckboxComponent";
+export const DFDatePicker = "DatePickerComponent";
+export const DFTimePicker = "TimePickerComponent";
+export const DFDateTimePicker = "DateTimePickerComponent";
+export const DFImage = "ImageComponent";
+export const DFNumericField = "NumericFieldComponent";
+export const DFPasswordField = "PasswordFieldComponent";
+export const DFRadioGroup = "RadioGroupComponent";
+export const DFSelect = "SelectComponent";
+export const DFStringList = "StringListComponent";
+export const DFSwitch = "SwitchComponent";
+export const DFTextField = "TextFieldComponent";
+export const DFTextArea = "TextareaComponent";

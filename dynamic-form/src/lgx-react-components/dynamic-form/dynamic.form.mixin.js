@@ -1,10 +1,10 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  DynamicTableTabsFormComponent,
+  DynamicFormTabsComponent,
   defaultDynamicFormControl,
   defaultDynamicFormGroup,
-  DynamicTableLeft
+  DynamicFormLeftGroup
 } from "./constants/index";
 import chunk from "lodash/chunk";
 import groupBy from "lodash/groupBy";
@@ -49,7 +49,7 @@ class DynamicFormMixinComponent extends Component {
       );
       if (item) {
         if (group) {
-          group === DynamicTableLeft
+          group === DynamicFormLeftGroup
             ? item.leftFieldGroup.push(field)
             : item.rightFieldGroup.push(field);
         } else {
@@ -65,7 +65,7 @@ class DynamicFormMixinComponent extends Component {
           rightFieldGroup: []
         };
         if (group) {
-          group === DynamicTableLeft
+          group === DynamicFormLeftGroup
             ? tabNewItem.leftFieldGroup.push(field)
             : tabNewItem.rightFieldGroup.push(field);
         } else {
@@ -221,7 +221,7 @@ DynamicFormMixinComponent.defaultProps = {
   formConfig: {
     fieldsConfig: []
   },
-  formType: DynamicTableTabsFormComponent,
+  formType: DynamicFormTabsComponent,
   materialData: {},
   model: {}
 };

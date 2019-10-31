@@ -4,9 +4,9 @@ import StepsFormComponent from "./components/steps-form/steps-form.component";
 import TabsFormComponent from "./components/tabs-form/tabs-form.component";
 import SimpleFormComponent from "./components/simple-form/simple-form-component";
 import {
-  DynamicTablePanelsFormComponent,
-  DynamicTableTabsFormComponent,
-  DynamicTableStepsFormComponent
+  DynamicFormPanelsComponent,
+  DynamicFormTabsComponent,
+  DynamicFormStepsFormComponent
 } from "./constants/index";
 import DynamicFormMixinComponent from "./dynamic.form.mixin";
 import cloneDeep from "lodash/cloneDeep";
@@ -65,9 +65,9 @@ class DynamicFormComponent extends DynamicFormMixinComponent {
 
   getComponent() {
     const components = {
-      [DynamicTablePanelsFormComponent]: PanelsFormComponent,
-      [DynamicTableStepsFormComponent]: StepsFormComponent,
-      [DynamicTableTabsFormComponent]: TabsFormComponent
+      [DynamicFormPanelsComponent]: PanelsFormComponent,
+      [DynamicFormStepsFormComponent]: StepsFormComponent,
+      [DynamicFormTabsComponent]: TabsFormComponent
     };
     return components[this.props.formType];
   }

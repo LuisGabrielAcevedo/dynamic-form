@@ -8,6 +8,8 @@
     "fg-loadcss": "^2.1.0",
     "lgx-axios-dev-tools": "^1.0.2",
     "lodash": "^4.17.15",
+    "mobx": "^5.14.2",
+    "mobx-react": "^6.1.4",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

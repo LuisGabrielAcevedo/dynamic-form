@@ -1,2 +1,2 @@
-export const DynamicTableLeft = "LEFT";
-export const DynamicTableRight = "RIGHT";
+export const DynamicFormLeftGroup = "LEFT";
+export const DynamicFormRightGroup = "RIGHT";

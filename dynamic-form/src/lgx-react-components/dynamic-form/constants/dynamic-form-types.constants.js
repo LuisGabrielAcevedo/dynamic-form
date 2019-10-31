@@ -1,3 +1,3 @@
-export const DynamicTablePanelsFormComponent = "PanelsFormComponent";
-export const DynamicTableTabsFormComponent = "TabsFormComponent";
-export const DynamicTableStepsFormComponent = "StepsFormComponent";
+export const DynamicFormPanelsComponent = "PanelsFormComponent";
+export const DynamicFormTabsComponent = "TabsFormComponent";
+export const DynamicFormStepsFormComponent = "StepsFormComponent";
