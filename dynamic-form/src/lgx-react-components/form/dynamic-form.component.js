@@ -1,5 +1,7 @@
 import React from "react";
 import DynamicFormMixinComponent from "./dynamic-form-mixin.component";
+import FormGroupStore from "./store/form-group.store";
+import { Provider } from "mobx-react";
 
 class DynamicFormComponent extends DynamicFormMixinComponent {
   componentDidMount() {}
@@ -7,7 +9,11 @@ class DynamicFormComponent extends DynamicFormMixinComponent {
   componentWillUpdate() {}
 
   render() {
-    return <div>DynamicFormComponent</div>;
+    return (
+      <Provider FormGroupStore={new FormGroupStore()}>
+        <div>DynamicFormComponent</div>
+      </Provider>
+    );
   }
 }
 

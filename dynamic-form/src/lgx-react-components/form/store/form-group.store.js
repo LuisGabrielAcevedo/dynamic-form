@@ -1,7 +1,16 @@
 import FormControl from "./form-control";
-console.log(new FormControl("name", null));
+import { observable, action, computed } from "mobx";
 
-class FormGroupStore {}
+class FormGroupStore {
+  @observable controls = {};
 
-const formGroup = new FormGroupStore();
-export default formGroup;
+  @action addControl = (key, value, validators) => {
+    this.controls[key] = new FormControl(key, value, validators);
+  };
+
+  @computed get form() {
+    return this.controls;
+  }
+}
+
+export default FormGroupStore;

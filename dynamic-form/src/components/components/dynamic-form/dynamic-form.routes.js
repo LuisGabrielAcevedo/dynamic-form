@@ -11,7 +11,7 @@ const ValidatorsComponent = React.lazy(() =>
   import("./validators/validators.component")
 );
 const AppearanceComponent = React.lazy(() =>
-  import("./appearance/apparence.component")
+  import("./appearance/appearance.component")
 );
 
 const DynamicFormRoutes = [
